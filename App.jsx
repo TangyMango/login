@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, Alert, Image } from 'react-native';
 
 export default function App() {
   const [expediente, setExpediente] = useState('');
@@ -31,6 +31,10 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <Image
+        style={styles.logo}
+        source={require('./assets/dragon.png')}
+      />
       <Text style={styles.title}>Login</Text>
       <View style={styles.inputContainer}>
         <TextInput
@@ -58,40 +62,45 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F5FCFF',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-  },
-  title: {
-    fontSize: 40,
-    fontWeight: 'bold',
-    marginBottom: 30,
-    color: '#333',
-  },
-  inputContainer: {
-    width: '80%',
-  },
-  TextInput: {
-    marginBottom: 15,
-    backgroundColor: '#fff',
-    padding: 10,
-    borderRadius: 5,
-    borderColor: '#ccc',
-    borderWidth: 1,
-    fontSize: 16,
-  },
+ container: {
+  flex: 1,
+  backgroundColor: '#F5FCFF',
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: 20,
+ },
+ logo: {
+  width: '100%',
+  height: 250,
+  marginBottom: 20,
+},
+ title: {
+  fontSize: 40,
+  fontWeight: 'bold',
+  marginBottom: 30,
+  color: '#263238',
+ },
+ inputContainer: {
+  width: '80%',
+ },
+ TextInput: {
+  marginBottom: 15,
+  backgroundColor: '#E8F8F5',
+  padding: 10,
+  borderRadius: 5,
+  borderColor: '#40B9A5',
+  borderWidth: 1,
+  fontSize: 16,
+ },
+ button: {
+  backgroundColor: '#98F5E1',
+  padding: 15,
+  borderRadius: 5,
+  color: '#263238',
+  fontSize: 18,
+  fontWeight: 'bold',
+ },
   buttonContainer: {
     alignItems: 'center',
-  },
-  button: {
-    backgroundColor: '#007AFF',
-    padding: 15,
-    borderRadius: 5,
-    color: '#fff',
-    fontSize: 18,
-    fontWeight: 'bold',
   },
 });
