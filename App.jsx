@@ -5,8 +5,15 @@ export default function App() {
   const [expediente, setExpediente] = useState('');
   const [password, setPassword] = useState('');
 
+  const usuarios = [
+    { expediente: '275890', password: 'UnSpartanNoMuere' }, 
+    { expediente: '275880', password: 'NobleSeis' },
+  ];
+
   const handleSubmit = () => {
-    if (expediente !== '' && password.length >= 8) {
+    const usuarioEncontrado = usuarios.find(user => user.expediente === expediente && user.password === password);
+
+    if (usuarioEncontrado) {
       Alert.alert('Usuario autenticado');
     } else {
       Alert.alert('Usuario no autenticado');
@@ -22,8 +29,8 @@ export default function App() {
   };
 
   const handlePasswordChange = (password) => {
-    if (password.length > 8) {
-      Alert.alert('La contraseña no puede tener más de 8 caracteres');
+    if (password.length > 16) {
+      Alert.alert('La contraseña no puede tener más de 16 caracteres');
     } else {
       setPassword(password);
     }
@@ -48,7 +55,7 @@ export default function App() {
         <TextInput
           style={styles.TextInput}
           placeholder="Password"
-          maxLength={8}
+          maxLength={16}
           secureTextEntry={true}
           onChangeText={handlePasswordChange}
           value={password}
